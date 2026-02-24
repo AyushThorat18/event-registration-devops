@@ -20,4 +20,5 @@ def register():
 
 
 if __name__ == "__main__":
+    print("CI/CD Auto Trigger Working")
     app.run(host="0.0.0.0", port=5000)
