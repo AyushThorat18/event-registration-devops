@@ -3,13 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-    steps {
-        git branch: 'main',
-            url: 'https://github.com/AyushThorat18/event-registration-devops.git'
-    }
-}
-
         stage('Build Docker Image') {
             steps {
                 bat 'docker build -t event-registration-app .'
