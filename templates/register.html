@@ -1,39 +1,26 @@
-pipeline {
-    agent any
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+</head>
+<body>
 
-    stages {
+    <h2>Event Registration Form</h2>
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/AyushThorat18/event-registration-devops.git'
-            }
-        }
+    <form method="POST">
 
-        stage('Build Docker Image') {
-            steps {
-                bat 'docker build -t event-registration-app .'
-            }
-        }
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
 
-        stage('Stop Old Container') {
-            steps {
-                bat '''
-                docker stop event-app || exit 0
-                docker rm event-app || exit 0
-                '''
-            }
-        }
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
 
-        stage('Run Container') {
-            steps {
-                bat 'docker run -d -p 5000:5000 --name event-app event-registration-app'
-            }
-        }
+        <label>Event Name:</label><br>
+        <input type="text" name="event" required><br><br>
 
-        stage('Test Application') {
-            steps {
-                bat 'echo Application Deployed Successfully'
-            }
-        }
-    }
-}
+        <button type="submit">Register</button>
+
+    </form>
+
+</body>
+</html>
